@@ -29,7 +29,7 @@ pacman -U --noconfirm --needed /home/docker/.cache/pacaur/nextcloud/nextcloud-${
 
 # setup Apache for nextcloud
 cp /etc/webapps/nextcloud/apache.example.conf /etc/httpd/conf/extra/nextcloud.conf
-sed -i 's,Alias /nextcloud "/usr/share/webapps/nextcloud",Alias /${TARGET_SUBDIR} "/usr/share/webapps/nextcloud",g' /etc/httpd/conf/extra/nextcloud.conf
+sed -i 's,Alias / "/usr/share/webapps/nextcloud",Alias /${TARGET_SUBDIR} "/usr/share/webapps/nextcloud",g' /etc/httpd/conf/extra/nextcloud.conf
 sed -i '$a Include conf/extra/nextcloud.conf' /etc/httpd/conf/httpd.conf
 
 # reduce docker layer size
